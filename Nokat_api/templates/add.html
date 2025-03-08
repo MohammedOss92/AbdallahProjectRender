@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create a New Category</title>
+    <style>
+        body {
+            margin: 20px;
+            /* Set margin for the page */
+            padding: 10px;
+            /* Set padding for the page */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            /* Bottom margin for the heading */
+        }
+
+        label {
+            display: block;
+            /* Display labels as separate blocks */
+            margin-bottom: 10px;
+            /* Bottom margin for labels */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            /* Make the input field full-width */
+            padding: 5px;
+            /* Set padding for the input field */
+            margin-bottom: 10px;
+            /* Bottom margin for the input field */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            /* Background color for the submit button */
+            color: #fff;
+            /* Text color for the submit button */
+            padding: 10px 20px;
+            /* Set padding for the submit button */
+            border: none;
+            /* Remove borders */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            /* Change background color on hover */
+        }
+
+        p {
+            margin-top: 10px;
+            /* Top margin for paragraphs */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a New Category</h1>
+    <form method="post" action="{% url 'create_img_type' %}">
+        {% csrf_token %}
+        <label for="img_type_name">Category Name:</label>
+        <input type="text" id="img_type_name" name="img_type_name" required>
+        <br>
+        <label for="new_image">new_image Value:</label>
+        <input type="text" id="new_image" name="new_image" value="1" required>
+        <br>
+        <input type="submit" value="Create New Category">
+    </form>
+
+	{% if message %}
+    	<p>{{ message }}</p>
+	{% endif %}
+</body>
+
+</html>

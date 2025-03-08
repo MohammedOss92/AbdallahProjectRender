@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add a New Image</title>
+    <style>
+        body {
+            margin: 20px;
+            /* External margin for the page with a width of 20 pixels */
+            padding: 20px;
+            /* Internal padding for the page with a width of 20 pixels */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            /* Bottom margin for the heading with a height of 20 pixels */
+        }
+
+        form {
+            margin-top: 20px;
+            /* Top margin for the form with a height of 20 pixels */
+            padding: 20px;
+            /* Internal padding for the form with a width of 20 pixels */
+            border: 1px solid #ccc;
+            /* Simple border for the form */
+        }
+
+        label {
+            display: block;
+            /* Display elements as block boxes to show each element in a separate row */
+            margin-bottom: 10px;
+            /* Bottom margin for elements with a height of 10 pixels */
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            /* Set elements to extend the full width of the form */
+            padding: 10px;
+            /* Internal padding for form elements with a height of 10 pixels */
+            margin-bottom: 10px;
+            /* Bottom margin for elements with a height of 10 pixels */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            /* Background color for the submit button */
+            color: white;
+            /* Text color for the submit button */
+            padding: 10px 20px;
+            /* Internal padding for the submit button with a width of 10 pixels and a height of 20 pixels */
+            border: none;
+            /* Remove borders */
+            cursor: pointer;
+            /* Change the cursor on hover */
+        }
+    </style>
+</head>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.ID_Type.id_for_label }}">Select Category:</label>
+        {{ form.ID_Type }}
+    </div>
+
+    <div class="form-group m-3">
+        <label>Upload image</label>
+        <input required name="pic" type="file" multiple class="form-control-file">
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.new_img.id_for_label }}">New Image:</label>
+        {{ form.new_img }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.image_url.id_for_label }}">Image URL:</label>
+        {{ form.image_url }}
+    </div>
+
+	<div class="form-group">
+        	<label for="{{ form.new_msgs_text.id_for_label }}">new_msgs_text:</label>
+        {{ form.new_msgs_text}}
+    </div>
+
+    <div class="form-group">
+
+        <input type="submit" value="Add Image">
+  </div>
+</form>
+</body>
+
+</html>

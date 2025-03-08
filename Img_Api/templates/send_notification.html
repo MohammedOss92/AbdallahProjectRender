@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Notification</title>
+</head>
+<body>
+    <h1>Send Notification</h1>
+    <form action="{% url 'send-notification' %}" method="POST">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required><br><br>
+        <label for="body">Message:</label>
+        <textarea name="body" id="body" rows="5" required></textarea><br><br>
+        <input type="submit" value="Send Notification">
+    </form>
+</body>
+</html>

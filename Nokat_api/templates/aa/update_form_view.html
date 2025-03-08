@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Img Nokat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Update Img Nokat</h1>
+        <form method="post" class="p-4 border rounded shadow-sm">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="rows_to_update" class="form-label">Number of rows:</label>
+                <input type="number" id="rows_to_update" name="rows_to_update" value="5" min="1" required
+                    class="form-control">
+            </div>
+
+          {%comment%}
+            <div class="mb-3">
+                <label for="ID_Type_id" class="form-label">Select the type:</label>
+                <select id="ID_Type_id" name="ID_Type_id" required class="form-select">
+                    {% for type in message_types %}
+                    <option value="{{ type.id }}">{{ type.MsgTypes }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {%endcomment%}
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">to update</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تحديث الرسائل</title>
+</head>
+
+<body>
+    <h1>تحديث الرسائل</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="rows_to_update">عدد الصفوف:</label>
+        <input type="number" id="rows_to_update" name="rows_to_update" value="50" min="1" required>
+
+        <label for="ID_Type_id">اختر النوع:</label>
+        <select id="ID_Type_id" name="ID_Type_id" required>
+            {% for type in message_types %}
+            <option value="{{ type.id }}">{{ type.MsgTypes }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">تحديث</button>
+    </form>
+</body>
+
+</html> -->
